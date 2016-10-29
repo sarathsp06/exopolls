@@ -4,7 +4,6 @@
 // init project
 var express = require('express');
 var app = express();
-
 var polls = {};
 
 // http://expressjs.com/en/starter/static-files.html
