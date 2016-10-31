@@ -1,27 +1,13 @@
-Welcome to the HyperDev BETA
-============================
-
-Click `"Show"` in the header to see your app live. Updates to your code will instantly deploy and update live.
-
-HyperDev is a developer playground that lets you code a real web-app without the slow setup and deployment steps. 
-
-[About HyperDev](https://hyperdev.com/about)
-
-
-Your Project
+Exotel Polls
 ------------
+An application that draws pie chart of votes
+   1. Good
+   2. Ok
+   3. Bad
 
-On the back-end,
-- your app starts at `server.js`
-- add frameworks and packages in `package.json`
-- safely store app secrets in `.env`
-
-On the front-end,
-- edit `client.js`, `style.css` and `index.html`
-- drag in `assets`, like images or music, to add them to your project
-
-
-Made by Fog Creek
------------------
-
-\ ゜o゜)ノ
+How to run
+   1. Clone the repo
+   2. cd <clond-directory>
+   3. npm install
+   4. npm run
+  
