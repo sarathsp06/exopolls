@@ -1,89 +1,89 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Polling Sample</title>
-        <meta name="description" content="Exotel polling - Demo">
-        <link id="favicon" rel="icon" href="https://exotel.in/wp-content/uploads/2015/01/favicon.png" type="image/x-icon">
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/style.css">
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
-        <script>
-            function UpdateChart(){
-                 $.get("exotel/polls", function( data ) {
-                  console.log(data)
-                  chart.data.datasets[0].data = [data['"1"'] || 0,data['"2"'] || 0,data['"3"'] || 0];
-                  chart.update();
-                  return true;
-                 });
-               }
-            
-            function ChartUpdates(chart) {
-               setInterval(UpdateChart,3000)
-            }
-            
-            function LoadChart(){
+
+<head>
+    <title>Polling Sample</title>
+    <meta name="description" content="Exotel polling - Demo">
+    <link id="favicon" rel="icon" href="https://exotel.in/wp-content/uploads/2015/01/favicon.png" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
+    <script>
+        function UpdateChart() {
+            $.get("exotel/polls", function(data) {
+                console.log(data)
+                chart.data.datasets[0].data = [data['"1"'] || 0, data['"2"'] || 0, data['"3"'] || 0];
+                chart.update();
+                return true;
+            });
+        }
+
+        function ChartUpdates(chart) {
+            setInterval(UpdateChart, 3000)
+        }
+
+        function LoadChart() {
             var ctx = document.getElementById("myChart");
-            var myChart = new Chart(ctx,{
-            "responsive": true,
-            "maintainAspectRatio": false,
-            "type": "pie",
-            "options": {
-            title: {
-            "fontSize":20,
-            "padding" : 20,
-            "display": true,
-            "text": "Exotel polling - Demo"
-            },
-            legend: {
-              display: true,
-              position: "left",
-              labels: {
-                  padding: 16,
-                  fontSize : 16,
-                  fontColor: 'rgb(0, 0, 0)'
-              }
-            }
-            
-            },
-            "data": {
-            "labels": [
-            "Good",
-            "Ok",
-            "Bad"
-            ],
-            "datasets": [
-            {
-            "data": [
-            0,
-            0,
-            0
-            ],
-            "backgroundColor": [
-            "rgb(0, 0, 255)",
-            "rgb(0, 255,0)",
-            "rgb(255, 0, 0)"
-            ],
-            "hoverBackgroundColor": [
-            "rgb(0,0,255)",
-            "rgb(0,255,0)",
-            "rgb(255,0,0)"
-            ]
-            }
-            ]
-            }
+            var myChart = new Chart(ctx, {
+                "responsive": true,
+                "maintainAspectRatio": false,
+                "type": "pie",
+                "options": {
+                    title: {
+                        "fontSize": 20,
+                        "padding": 20,
+                        "display": true,
+                        "text": "Exotel polling - Demo"
+                    },
+                    legend: {
+                        display: true,
+                        position: "left",
+                        labels: {
+                            padding: 16,
+                            fontSize: 16,
+                            fontColor: 'rgb(0, 0, 0)'
+                        }
+                    }
+
+                },
+                "data": {
+                    "labels": [
+                        "Good",
+                        "Ok",
+                        "Bad"
+                    ],
+                    "datasets": [{
+                        "data": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "backgroundColor": [
+                            "rgb(0, 0, 255)",
+                            "rgb(0, 255,0)",
+                            "rgb(255, 0, 0)"
+                        ],
+                        "hoverBackgroundColor": [
+                            "rgb(0,0,255)",
+                            "rgb(0,255,0)",
+                            "rgb(255,0,0)"
+                        ]
+                    }]
+                }
             });
             return myChart;
-            }
-        </script>
-    </head>
-    <body>
-        <canvas id="myChart" style="display: block;width: auto;"></canvas>
-        <script>
-            var chart = LoadChart()
-            UpdateChart()
-            ChartUpdates(chart)
-        </script>
-    </body>
+        }
+    </script>
+</head>
+
+<body>
+    <canvas id="myChart" style="display: block;width: auto;"></canvas>
+    <script>
+        var chart = LoadChart()
+        UpdateChart()
+        ChartUpdates(chart)
+    </script>
+</body>
